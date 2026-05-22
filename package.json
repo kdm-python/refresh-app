@@ -1,0 +1,28 @@
+{
+  "name": "refresh-app",
+  "version": "1.0.0",
+  "description": "This is a refresher sample application to help me get back into coding after a long break.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kdm-python/refresh-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/kdm-python/refresh-app/issues"
+  },
+  "homepage": "https://github.com/kdm-python/refresh-app#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
