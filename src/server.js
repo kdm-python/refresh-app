@@ -4,12 +4,13 @@ require("dotenv").config();
 
 const express = require("express");
 const healthRouter = require("./routes/health");
-
+const usersRouter = require("./routes/users");
 const app = express();
 
 const PORT = process.env.PORT || 3000;
 
 app.use("/api", healthRouter);
+app.use("/api/users", usersRouter);
 
 app.use((req, res, next) => {
   console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
