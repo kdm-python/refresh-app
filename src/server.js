@@ -9,16 +9,22 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-app.use("/api", healthRouter);
-app.use("/api/users", usersRouter);
-
 app.use((req, res, next) => {
-  console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
+  const start = Date.now();
+
+  res.on("finish", () => {
+    const duration = Date.now() - start;
+
+    console.log(
+      `${req.method} ${req.originalUrl} ${res.statusCode} ${duration}ms`,
+    );
+  });
 
   next();
 });
 
-// app.use(morgan("dev"));
+app.use("/api", healthRouter);
+app.use("/api/users", usersRouter);
 
 app.get("/", (req, res) => {
   res.send("<h1>Refresh app running</h1>");
