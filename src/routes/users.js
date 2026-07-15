@@ -1,16 +1,19 @@
+const usersController = require("../controllers/userController");
+
 const express = require("express");
 const router = express.Router();
 
 const db = require("../db/database");
-const users = db.prepare("SELECT * FROM users").all();
+// const users = db.prepare("SELECT * FROM users").all();
 
 router.get("/", (req, res) => {
+  const users = usersController.getAllUsers();
   res.json(users);
 });
 
 router.get("/:id", (req, res) => {
   const userId = parseInt(req.params.id, 10);
-  const user = users.find((u) => u.id === userId);
+  const user = usersController.getUserById(userId);
 
   if (user) {
     res.json(user);
