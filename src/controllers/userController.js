@@ -1,11 +1,15 @@
+const usersService = require("../services/usersService");
+
 const db = require("../db/database");
 
 const getAllUsers = () => {
-  return db.prepare("SELECT * FROM users").all();
+  return usersService.getAllUsers();
+  // return db.prepare("SELECT * FROM users").all();
 };
 
 const getUserById = (id) => {
-  return db.prepare("SELECT * FROM users WHERE id = ?").get(id);
+  return usersService.getUserById(id);
+  // return db.prepare("SELECT * FROM users WHERE id = ?").get(id);
 };
 
 module.exports = {
